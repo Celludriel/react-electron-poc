@@ -11,3 +11,5 @@ Goals
     of electron
 -   Learn how to setup an in memory database with RxDb making it work with electron
 -   store and read from the memory database
+-   introduce redux
+-   introduce material-ui
