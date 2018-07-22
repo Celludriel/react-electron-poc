@@ -1,4 +1,6 @@
 const electron = require('electron');
+const { default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } = require('electron-devtools-installer');
+
 // Module to control application life.
 const app = electron.app;
 // Module to create native browser window.
@@ -32,6 +34,13 @@ function createWindow() {
         // when you should delete the corresponding element.
         mainWindow = null
     })
+
+    installExtension(REACT_DEVELOPER_TOOLS)
+        .then((name) => console.log(`Added Extension: ${name}`))
+        .catch((err) => console.log('An error occurred: ', err));
+    installExtension(REDUX_DEVTOOLS)
+        .then((name) => console.log(`Added Extension: ${name}`))
+        .catch((err) => console.log('An error occurred: ', err));
 }
 
 // This method will be called when Electron has finished
