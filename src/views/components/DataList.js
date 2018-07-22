@@ -8,7 +8,7 @@ export default class DataList extends Component {
             <List>
                 {
                     this.props.data.map(function(d, idx) {
-                        return (<ListItem key={idx} primaryText={d.Name} />)
+                        return (<ListItem key={idx} primaryText={d.name} />)
                     })
                 }
             </List>

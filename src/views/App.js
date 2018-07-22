@@ -13,7 +13,7 @@ class App extends Component {
         super(props);
         this.state = {
             files: [],
-            data: []
+            data: {"cards": []}
         }
     }
 
@@ -28,8 +28,7 @@ class App extends Component {
 
         const data = JSON.parse(fs.readFileSync(appPath + '/data/data.json', 'utf-8'));
         this.setState({
-            ...this.state,
-            'data': data
+            data: Object.assign({}, this.state.data, {cards: data.cards})
         });
     }
 
@@ -44,7 +43,7 @@ class App extends Component {
                 <code>src/App.js</code>
                 and save to reload.
             </p>
-            <DataList data={this.state.data.slice(0,10)} />
+            <DataList data={this.state.data.cards.slice(0,10)} />
         </div>);
     }
 }
