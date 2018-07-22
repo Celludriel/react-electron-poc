@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import DataList from './components/DataList';
 
 const electron = window.require('electron');
 const fs = electron.remote.require('fs');
@@ -32,16 +33,6 @@ class App extends Component {
         });
     }
 
-    renderFiles = () => {
-        return this.state.files.map((file, index) => {
-            return (<p key={index}>{file}</p>);
-        })
-    }
-
-    renderData = () => {
-        return JSON.stringify(this.state.data.slice(0,10));
-    }
-
     render() {
         return (<div className="App">
             <header className="App-header">
@@ -53,10 +44,7 @@ class App extends Component {
                 <code>src/App.js</code>
                 and save to reload.
             </p>
-            {this.renderFiles()}
-            <p>
-                {this.renderData()}
-            </p>
+            <DataList data={this.state.data.slice(0,10)} />
         </div>);
     }
 }
