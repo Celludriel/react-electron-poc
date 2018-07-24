@@ -20,7 +20,7 @@
 			"artist": "Mitsuhiro Arita",
 			"rarity": "Rare Holo EX",
 			"series": "EX",
-			"set": "Deoxys",
+			"pokeset": "Deoxys",
 			"setCode": "ex8",
 			"text": ["When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."],
 			"attacks": [{
@@ -52,7 +52,7 @@
 			"artist": "Kagemaru Himeno",
 			"rarity": "Common",
 			"series": "Diamond & Pearl",
-			"set": "Legends Awakened",
+			"pokeset": "Legends Awakened",
 			"setCode": "dp6",
 			"attacks": [{
 					"cost": ["Colorless"],
@@ -94,7 +94,7 @@
 			"artist": "5ban Graphics",
 			"rarity": "Rare",
 			"series": "XY",
-			"set": "XY Black Star Promos",
+			"pokeset": "XY Black Star Promos",
 			"setCode": "xyp",
 			"attacks": [{
 					"cost": ["Fairy"],
@@ -132,7 +132,7 @@
 			"artist": "Ryo Ueda",
 			"rarity": "Uncommon",
 			"series": "EX",
-			"set": "Crystal Guardians",
+			"pokeset": "Crystal Guardians",
 			"setCode": "ex14",
 			"text": ["Choose up to 2 in any combination of Pokémon Tool cards and Stadium cards in play (both yours and your opponent's) and discard them."]
 		}, {
@@ -151,7 +151,7 @@
 			"artist": "Midori Harada",
 			"rarity": "Common",
 			"series": "POP",
-			"set": "POP Series 9",
+			"pokeset": "POP Series 9",
 			"setCode": "pop9",
 			"attacks": [{
 					"cost": ["Grass"],
@@ -192,7 +192,7 @@
 			"artist": "Sumiyoshi Kizuki",
 			"rarity": "Common",
 			"series": "Base",
-			"set": "Team Rocket",
+			"pokeset": "Team Rocket",
 			"setCode": "base5",
 			"attacks": [{
 					"cost": ["Colorless"],
@@ -235,7 +235,7 @@
 			"artist": "Ryo Ueda",
 			"rarity": "Rare Holo EX",
 			"series": "EX",
-			"set": "Deoxys",
+			"pokeset": "Deoxys",
 			"setCode": "ex8",
 			"text": ["When Pokémon-ex has been Knocked Out, your opponent takes 2 Prize cards."],
 			"attacks": [{
@@ -279,7 +279,7 @@
 			"artist": "Ken Sugimori",
 			"rarity": "Rare Holo",
 			"series": "EX",
-			"set": "Power Keepers",
+			"pokeset": "Power Keepers",
 			"setCode": "ex16",
 			"attacks": [{
 					"cost": ["Colorless", "Colorless", "Colorless"],
@@ -321,7 +321,7 @@
 			"artist": "Kagemaru Himeno",
 			"rarity": "Common",
 			"series": "Base",
-			"set": "Team Rocket",
+			"pokeset": "Team Rocket",
 			"setCode": "base5",
 			"attacks": [{
 					"cost": ["Grass"],
@@ -358,7 +358,7 @@
 			"artist": "5ban Graphics",
 			"rarity": "",
 			"series": "XY",
-			"set": "XY Black Star Promos",
+			"pokeset": "XY Black Star Promos",
 			"setCode": "xyp",
 			"attacks": [{
 					"cost": ["Grass", "Grass"],
@@ -389,7 +389,7 @@
 			"artist": "Sumiyoshi Kizuki",
 			"rarity": "Common",
 			"series": "Diamond & Pearl",
-			"set": "Legends Awakened",
+			"pokeset": "Legends Awakened",
 			"setCode": "dp6",
 			"attacks": [{
 					"cost": ["Free"],

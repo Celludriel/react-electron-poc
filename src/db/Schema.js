@@ -12,7 +12,7 @@ export const schema = {
       type: 'string'
     },
     nationalPokedexNumber: {
-      type: 'string'
+      type: 'integer'
     },
     imageUrl: {
       type: 'string'
@@ -70,7 +70,7 @@ export const schema = {
     "series": {
         "type": "string"
     },
-    "set": {
+    "pokeset": {
         "type": "string"
     },
     "setCode": {

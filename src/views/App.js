@@ -32,6 +32,7 @@ class App extends Component {
     }
 
     async createDatabase() {
+      RxDB.removeDatabase('carddb', 'idb');        
       // password must have at least 8 characters
       const db = await RxDB.create(
         {name: dbName, adapter: 'idb', password: '12345678'}
@@ -67,6 +68,13 @@ class App extends Component {
         });
 
         this.db = await this.createDatabase();
+
+        let card;
+        for(card in this.state.data.cards){
+            if(card !== undefined){
+                await this.db.cards.insert(this.state.data.cards[card]);
+            }
+        }
     }
 
     render() {
