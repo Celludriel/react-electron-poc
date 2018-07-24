@@ -27,12 +27,15 @@ class App extends Component {
         super(props);
         this.state = {
             files: [],
-            data: {"cards": []}
+            data: {"cards": []},
+            db: undefined,
+            documents: {}
         }
     }
 
     async createDatabase() {
-      RxDB.removeDatabase('carddb', 'idb');        
+      RxDB.removeDatabase('carddb', 'idb');
+
       // password must have at least 8 characters
       const db = await RxDB.create(
         {name: dbName, adapter: 'idb', password: '12345678'}
@@ -63,18 +66,21 @@ class App extends Component {
         });
 
         const data = JSON.parse(fs.readFileSync(appPath + '/data/data.json', 'utf-8'));
-        this.setState({
-            data: Object.assign({}, this.state.data, {cards: data.cards})
-        });
 
         this.db = await this.createDatabase();
 
         let card;
-        for(card in this.state.data.cards){
+        for(card in data.cards){
             if(card !== undefined){
-                await this.db.cards.insert(this.state.data.cards[card]);
+                await this.db.cards.insert(data.cards[card]);
             }
         }
+
+        await this.db.cards.find()
+            .exec()
+            .then(documents => this.setState({
+                    documents: Object.assign({}, this.state.documents, documents)
+                }));
     }
 
     render() {
@@ -88,7 +94,7 @@ class App extends Component {
                 <code>src/App.js</code>
                 and save to reload.
             </p>
-            <DataList data={this.state.data.cards.slice(0,10)} />
+            <DataList data={this.state.documents} />
         </div>);
     }
 }

@@ -5,9 +5,10 @@ import { List, ListItem} from 'material-ui/List';
 export default class DataList extends Component {
     render() {
         return (
+            Object.keys(this.props.data).length === 0 && this.props.data.constructor === Object ? "" :
             <List>
                 {
-                    this.props.data.map(function(d, idx) {
+                    Object.values(this.props.data).map(function(d, idx) {
                         return (<ListItem key={idx} primaryText={d.name} />)
                     })
                 }
@@ -17,5 +18,5 @@ export default class DataList extends Component {
 }
 
 DataList.propTypes = {
-  data: PropTypes.array
+  data: PropTypes.object
 };
