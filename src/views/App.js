@@ -7,6 +7,9 @@ const electron = window.require('electron');
 const fs = electron.remote.require('fs');
 const app = electron.remote.app;
 
+import PouchDB from 'pouchdb';
+import Find from 'pouchdb-find';
+
 class App extends Component {
 
     constructor(props) {
@@ -27,9 +30,27 @@ class App extends Component {
         });
 
         const data = JSON.parse(fs.readFileSync(appPath + '/data/data.json', 'utf-8'));
-        this.setState({
-            ...this.state,
-            'data': data
+
+        PouchDB.plugin(Find);
+        new PouchDB('cards').destroy().then(function(){
+            var db = new PouchDB('cards');
+            db.bulkDocs(data.cards);
+
+            db.createIndex({
+              index: {
+                fields: ['name']
+              }
+            }).then(function () {
+              db.find({
+                selector: {
+                  name: 'Deoxys ex',
+                }
+              }, function (err, result) {
+                  if (err) { return console.log(err); }
+                  console.log(result);
+              });
+            });
+
         });
     }
 
