@@ -20,7 +20,7 @@ class App extends Component {
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const appPath = app.getAppPath();
         console.log(appPath);
         const path = app.getPath('userData');
@@ -32,25 +32,29 @@ class App extends Component {
         const data = JSON.parse(fs.readFileSync(appPath + '/data/data.json', 'utf-8'));
 
         PouchDB.plugin(Find);
-        new PouchDB('cards').destroy().then(function(){
-            var db = new PouchDB('cards');
-            db.bulkDocs(data.cards);
+        await new PouchDB('cards').destroy();
 
-            db.createIndex({
-              index: {
-                fields: ['name']
-              }
-            }).then(function () {
-              db.find({
-                selector: {
-                  name: 'Deoxys ex',
-                }
-              }, function (err, result) {
-                  if (err) { return console.log(err); }
-                  console.log(result);
-              });
-            });
+        var db = new PouchDB('cards');
+        db.bulkDocs(data.cards);
 
+        let result = await db.createIndex({
+          index: {
+            fields: ['name']
+          }
+        }).then(function () {
+          return db.find({
+            selector: {
+              name: 'Deoxys ex',
+            }
+          }, function (err, result) {
+              if (err) { return console.log(err); }
+              console.log(result);
+              return result;
+          });
+        });
+
+        this.setState({
+            data: Object.assign([], this.state.data, result.docs)
         });
     }
 
