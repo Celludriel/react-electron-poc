@@ -69,18 +69,15 @@ class App extends Component {
 
         this.db = await this.createDatabase();
 
-        let card;
-        for(card in data.cards){
-            if(card !== undefined){
-                await this.db.cards.insert(data.cards[card]);
-            }
-        }
+        await this.db.cards.pouch.bulkDocs(data.cards);
 
         await this.db.cards.find()
+            .where('name')
+            .eq('Deoxys ex')
             .exec()
             .then(documents => this.setState({
-                    documents: Object.assign({}, this.state.documents, documents)
-                }));
+                documents: Object.assign({}, this.state.documents, documents)
+            }));
     }
 
     render() {

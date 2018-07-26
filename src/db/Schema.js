@@ -1,4 +1,5 @@
 export const schema = {
+  disableKeyCompression: true,
   title: 'Card schema',
   description: 'Database schema for a pokemon card',
   version: 0,
